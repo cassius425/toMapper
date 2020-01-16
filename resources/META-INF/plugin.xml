@@ -2,7 +2,7 @@
   <id>com.your.company.unique.plugin.id</id>
   <name>ToMapper</name>
   <version>1.0</version>
-  <vendor email="c.cassius.425@gmail.com" url="https://github.com/kongxiangzhen/toMapper">Cassius</vendor>
+  <vendor email="c.cassius.425@gmail.com" url="https://github.com/cassius425/toMapper">Cassius</vendor>
 
   <description><![CDATA[
      <em> mybatis中快速查看对应方法的sql，快捷键ctrl+shift+x </em>
