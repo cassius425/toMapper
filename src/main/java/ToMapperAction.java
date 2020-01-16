@@ -26,10 +26,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * mybatis项目中从dao跳转到对应sql
+ * mybatis项目中从service,dao跳转到对应sql
  * Created by cassius on 2020/1/16 11:55
  */
-public class Dao2XmlAction extends AnAction {
+public class ToMapperAction extends AnAction {
 
 
     @Override
@@ -71,7 +71,7 @@ public class Dao2XmlAction extends AnAction {
                 XmlFile xmlFile = (XmlFile) psiFile[0];
                 String xml = xmlFile.getDocument().getText();
                 if (StringUtil.isNotEmpty(xml) && xml.contains("id=\"" + methodName + "\"")) {
-                    toXml(project, methodName, psiFile[0].getVirtualFile(), xml);
+                    toMapper(project, methodName, psiFile[0].getVirtualFile(), xml);
                 }
             }
             if (matcher.group().contains("Dao")) {
@@ -79,7 +79,7 @@ public class Dao2XmlAction extends AnAction {
                 XmlFile xmlFile = (XmlFile) psiFile[0];
                 String xml = xmlFile.getDocument().getText();
                 if (StringUtil.isNotEmpty(xml) && xml.contains("id=\"" + methodName + "\"")) {
-                    toXml(project, methodName, psiFile[0].getVirtualFile(), xml);
+                    toMapper(project, methodName, psiFile[0].getVirtualFile(), xml);
                 }
             }
 
@@ -90,7 +90,7 @@ public class Dao2XmlAction extends AnAction {
             //判断mapper是否存id="methodName"的sql,存在就打开对应的mapper xml
             //这里判断比较简单，不严谨。可以通过XmlFile遍历节点判断是否存在
             if (StringUtil.isNotEmpty(xml) && xml.contains("id=\"" + methodName + "\"")) {
-                toXml(project, methodName, files[0].getVirtualFile(), xml);
+                toMapper(project, methodName, files[0].getVirtualFile(), xml);
             } else {
                 ApplicationManager.getApplication().invokeLater(new Runnable() {
                     @Override
@@ -117,7 +117,7 @@ public class Dao2XmlAction extends AnAction {
      * @param mapperFile
      * @param xml
      */
-    private void toXml(Project project, String methodName, VirtualFile mapperFile, String xml) {
+    private void toMapper(Project project, String methodName, VirtualFile mapperFile, String xml) {
         //打开xml文件
         OpenFileDescriptor openFileDescriptor = new OpenFileDescriptor(project, mapperFile);
         Editor editor = FileEditorManager.getInstance(project).openTextEditor(openFileDescriptor, true);

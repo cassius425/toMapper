@@ -1,5 +1,6 @@
-## mybatisPlugin
-mybatis中，快捷查看对应sql的小插件
+## toMapper
+mybatis中，快捷查看对应sql的小插件  
+默认快捷键 shift+ctrl+X
 
 ### 适用范围
 #### 文件起名相对统一及dao与service中方法名一致的web项目：

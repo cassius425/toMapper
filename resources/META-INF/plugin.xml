@@ -1,8 +1,8 @@
 <idea-plugin>
   <id>com.your.company.unique.plugin.id</id>
-  <name>Dao2Xml</name>
+  <name>ToMapper</name>
   <version>1.0</version>
-  <vendor email="c.cassius.425@gmail.com" url="https://github.com/kongxiangzhen/mybatisPlugin">Cassius</vendor>
+  <vendor email="c.cassius.425@gmail.com" url="https://github.com/kongxiangzhen/toMapper">Cassius</vendor>
 
   <description><![CDATA[
      <em> mybatis中快速查看对应方法的sql，快捷键ctrl+shift+x </em>
@@ -28,7 +28,7 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="goToMapper" class="Dao2XmlAction" text="goToMapper" description="goToMapper">
+    <action id="goToMapper" class="ToMapperAction" text="goToMapper" description="goToMapper">
       <add-to-group group-id="JavaGenerateGroup1" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl X"/>
     </action>
